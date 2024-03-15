@@ -41,7 +41,7 @@ const Header = () => {
 
             <div className="headerLeaner max-w-[1180px] mx-auto py-16 rounded-2xl fontLexend mt-7">
                 <div className="text-center flex justify-center">
-                    <div className="max-w-[752px]">
+                    <div className="max-w-[852px]">
                         <h1 className="mb-5 text-5xl font-bold  leading-[64px] text-[#FFFFFF]">Discover an exceptional cooking class tailored for you!</h1>
                         <p className="mb-5 text-[#FFF] text-lg">I like to cook.I love to cook so I do my own cooking.I can make good recipes.I can cook a lot of food.My restaurant is different from other restaurants</p>
                         <div className='space-x-3'>

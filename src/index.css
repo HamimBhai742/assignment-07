@@ -23,6 +23,10 @@ body{
   background-color: rgba(21, 11, 43, 0.05);
 }
 
+.table-bg{
+  background: rgba(40, 40, 40, 0.03);
+}
+
 
 .headerLeaner{
   background: linear-gradient(0deg, rgba(21, 11, 43, 0.90) 0%, rgba(21, 11, 43, 0.00) 100%), url('../public/d57b5fb5ad84c9f6a9b1eb9782e9b11b.jpg') lightgray 0px -18.896px / 100% 123.31% no-repeat;

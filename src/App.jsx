@@ -18,7 +18,7 @@ function App() {
       setRecipe([...recipe, rc])
     }
     else {
-      toast.success("Success Notification !", { position: toast.POSITION.TOP_RIGHT, });
+      toast("Already Exists !");
     }
   }
 
@@ -52,6 +52,7 @@ function App() {
   return (
     <>
       <Header></Header>
+      <ToastContainer></ToastContainer>
       <div className='max-w-[1180px] mx-auto mt-10'>
         <div>
           <h3 className='text-4xl text-[#150B2B] font-semibold fontLexend text-center'>Our Recipes</h3>
@@ -62,7 +63,7 @@ function App() {
             <Recipes handelBtnWantToCook={handelBtnWantToCook}></Recipes>
           </div>
           <div className='border-2 border-[#28282833] rounded-xl p-5 w-[950px]'>
-            <h3 className='text-center text-[#282828] text-2xl font-semibold'>Want to cook: 0{recipe.length}</h3>
+            <h3 className='text-center text-[#282828] text-2xl font-semibold'>Want to cook: {recipe.length}</h3>
             <div className='border-b-2 border-[#2828281A] my-3'></div>
             <div>
               <div className="overflow-x-auto">
@@ -92,7 +93,7 @@ function App() {
               </div>
             </div>
             <div className='mt-10'>
-              <h3 className='text-center text-[#282828] text-2xl font-semibold'>Currently cooking: 0{newRecepi.length}</h3>
+              <h3 className='text-center text-[#282828] text-2xl font-semibold'>Currently cooking: {newRecepi.length}</h3>
               <div className='border-b-2 border-[#2828281A] my-3'></div>
               <div>
                 <div className="overflow-x-auto">

@@ -12,12 +12,10 @@ const Recipes = () => {
     }, [])
 
     return (
-        <div>
-            <h3>tyy</h3>
+        <div  className=' grid grid-cols-2 gap-5'>
             {
-                
-            }
-            <Recipi re></Recipi>
+            recipes.map(recipe=> <Recipi key={recipe.id} recipe={recipe}></Recipi>)
+            }        
         </div>
         
     );

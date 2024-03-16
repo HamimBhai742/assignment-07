@@ -28,25 +28,22 @@ function App() {
     setRecipe(newRecipe)
     // console.log(rcs);
     setNewRecipe([...newRecepi, rcs])
-    // setNewRecipe(newRecipe)
-    // // newRecipi.map(r=>console.log(r))
-    // console.log(newRecipe)
   }
   // console.log(newRecepi);
   let sum = 0;
   const sumPreparingTime = newRecepi.map(nrcp => nrcp.preparing_time)
-  console.log(sumPreparingTime);
-  // recipe.map((rcp) => console.log(rcp))
+  // console.log(sumPreparingTime);
+
   for (const n of sumPreparingTime) {
     sum = sum + n
-    console.log(sum);
+    // console.log(sum);
   }
 
   let totalCal = 0
   for (const cal of newRecepi) {
     const calor = cal.calories
     totalCal = totalCal + calor
-    console.log(calor);
+    // console.log(calor);
   }
   // console.log(sum);
   return (

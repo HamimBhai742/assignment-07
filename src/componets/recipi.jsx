@@ -1,11 +1,12 @@
 
 
-const Recipi = ({ recipe }) => {
-    console.log(recipe);
+const Recipi = ({ recipe,handelBtnWantToCook}) => {
+    // console.log(recipe);
+    // console.log(handelBtnWantToCook);
     const { recipe_img, recipe_name, short_description, preparing_time, calories, ingredients } = recipe
-    console.log(ingredients);
+    // console.log(ingredients);
     const ingredient = ingredients.filter((r, idx) => idx < 3)
-    console.log(ingredient);
+    // console.log(ingredient);
 
     return (
         <div>
@@ -25,7 +26,7 @@ const Recipi = ({ recipe }) => {
                         <div className='flex items-center gap-2 text-[#282828CC]'><i className="fa-solid fa-fire-flame-curved"></i> <p>{calories} calories</p></div>
                     </div>
                     <div className="card-actions mt-5">
-                        <button className="w-40 h-12 rounded-full bg-[#0BE58A] text-[#150B2B] text-lg font-medium">Want to Cook</button>
+                        <button onClick={()=>handelBtnWantToCook(recipe)} className="w-40 h-12 rounded-full bg-[#0BE58A] text-[#150B2B] text-lg font-medium">Want to Cook</button>
                     </div>
                 </div>
             </div>

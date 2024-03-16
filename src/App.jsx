@@ -1,13 +1,44 @@
 
+import { useState } from 'react'
 import './App.css'
 import Header from './componets/header'
 import Recipes from './componets/recipes'
 
 function App() {
 
+  const [recipe, setRecipe] = useState([])
+
+  const [newRecipi, setNewRecipe] = useState([])
+
+  const handelBtnWantToCook = (rc) => {
+    const cheakRecipe = recipe.find(rp => rp.recipe_id === rc.recipe_id)
+    if (!cheakRecipe) {
+      setRecipe([...recipe, rc])
+    }
+    else {
+      alert('already ass')
+    }
+  }
+
+  const handelBtnPreparing = (rc) => {
+    // console.log(newRecipi.recipe_name);
+    const newRecipe = recipe.filter(rcp => rcp.recipe_id !== rc.recipe_id)
+    setRecipe(newRecipe)
+    // const newRecipi = recipe.filter(rcp => rcp.recipe_id === rc.recipe_id)
+    setNewRecipe([...newRecipi, rc])
+    newRecipi.map(rs => console.log(rs.recipe_name))
+    // const cheakNewRecipe = recipe.find(rp => rp.recipe_id = rc.recipe_id)
+    // console.log(cheakNewRecipe);
+   
+    
+    // 
+
+  }
   
 
 
+
+  // recipe.map((rcp) => console.log(rcp))
   return (
     <>
       <Header></Header>
@@ -19,7 +50,7 @@ function App() {
         </div>
         <div className='flex gap-8 my-8'>
           <div>
-          <Recipes></Recipes>               
+            <Recipes handelBtnWantToCook={handelBtnWantToCook}></Recipes>
           </div>
           <div className='border-2 border-[#28282833] rounded-xl p-5 '>
             <h3 className='text-center text-[#282828] text-2xl font-semibold'>Want to cook: 01</h3>
@@ -38,13 +69,15 @@ function App() {
                   </thead>
                   <tbody>
                     {/* row 1 */}
-                    <tr className='table-bg text-[#282828B2]'>
-                      <th>1</th>
-                      <td>Chicken Caesar Salad</td>
-                      <td>20 minutes</td>
-                      <td>400 calories</td>
-                      <td><button className='text-[#150B2B] bg-[#0BE58A] p-3 px-5 rounded-full font-medium'>Preparing</button></td>
-                    </tr>
+                    {
+                      recipe.map((rcp, idx) => <tr key={idx} className='table-bg text-[#282828B2]'>
+                        <th>{idx + 1}</th>
+                        <td>{rcp.recipe_name}</td>
+                        <td>{rcp.preparing_time} minutes</td>
+                        <td>{rcp.calories} calories</td>
+                        <td><button onClick={() => handelBtnPreparing(rcp)} className='text-[#150B2B] bg-[#0BE58A] p-3 px-5 rounded-full font-medium'>Preparing</button></td>
+                      </tr>)
+                    }
                   </tbody>
                 </table>
               </div>
@@ -72,6 +105,14 @@ function App() {
                         <td>20 minutes</td>
                         <td>400 calories</td>
                       </tr>
+                      {
+                        <tr className='table-bg text-[#282828B2]'>
+                          <th></th>
+                          <td>{newRecipi.recipe_name}</td>
+                          <td>{newRecipi.preparing_time} minutes</td>
+                          <td>{newRecipi.calories} calories</td>
+                        </tr>
+                      }
                     </tbody>
                   </table>
                 </div>
@@ -81,7 +122,7 @@ function App() {
         </div>
       </div>
 
-   
+
     </>
   )
 }

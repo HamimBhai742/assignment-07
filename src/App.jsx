@@ -3,12 +3,14 @@ import { useState } from 'react'
 import './App.css'
 import Header from './componets/header'
 import Recipes from './componets/recipes'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
   const [recipe, setRecipe] = useState([])
 
-  const [newRecipi, setNewRecipe] = useState([])
+  const [newRecepi, setNewRecipe] = useState([])
 
   const handelBtnWantToCook = (rc) => {
     const cheakRecipe = recipe.find(rp => rp.recipe_id === rc.recipe_id)
@@ -16,33 +18,40 @@ function App() {
       setRecipe([...recipe, rc])
     }
     else {
-      alert('already ass')
+      toast.success("Success Notification !", { position: toast.POSITION.TOP_RIGHT, });
     }
   }
 
-  const handelBtnPreparing = (rc) => {
+  const handelBtnPreparing = (rcs) => {
     // console.log(newRecipi.recipe_name);
-    const newRecipe = recipe.filter(rcp => rcp.recipe_id !== rc.recipe_id)
+    const newRecipe = recipe.filter(rcp => rcp.recipe_id !== rcs.recipe_id)
     setRecipe(newRecipe)
-    // const newRecipi = recipe.filter(rcp => rcp.recipe_id === rc.recipe_id)
-    setNewRecipe([...newRecipi, rc])
-    newRecipi.map(rs => console.log(rs.recipe_name))
-    // const cheakNewRecipe = recipe.find(rp => rp.recipe_id = rc.recipe_id)
-    // console.log(cheakNewRecipe);
-   
-    
-    // 
-
+    // console.log(rcs);
+    setNewRecipe([...newRecepi, rcs])
+    // setNewRecipe(newRecipe)
+    // // newRecipi.map(r=>console.log(r))
+    // console.log(newRecipe)
   }
-  
-
-
-
+  // console.log(newRecepi);
+  let sum = 0;
+  const sumPreparingTime = newRecepi.map(nrcp => nrcp.preparing_time)
+  console.log(sumPreparingTime);
   // recipe.map((rcp) => console.log(rcp))
+  for (const n of sumPreparingTime) {
+    sum = sum + n
+    console.log(sum);
+  }
+
+  let totalCal = 0
+  for (const cal of newRecepi) {
+    const calor = cal.calories
+    totalCal = totalCal + calor
+    console.log(calor);
+  }
+  // console.log(sum);
   return (
     <>
       <Header></Header>
-
       <div className='max-w-[1180px] mx-auto mt-10'>
         <div>
           <h3 className='text-4xl text-[#150B2B] font-semibold fontLexend text-center'>Our Recipes</h3>
@@ -52,8 +61,8 @@ function App() {
           <div>
             <Recipes handelBtnWantToCook={handelBtnWantToCook}></Recipes>
           </div>
-          <div className='border-2 border-[#28282833] rounded-xl p-5 '>
-            <h3 className='text-center text-[#282828] text-2xl font-semibold'>Want to cook: 01</h3>
+          <div className='border-2 border-[#28282833] rounded-xl p-5 w-[950px]'>
+            <h3 className='text-center text-[#282828] text-2xl font-semibold'>Want to cook: 0{recipe.length}</h3>
             <div className='border-b-2 border-[#2828281A] my-3'></div>
             <div>
               <div className="overflow-x-auto">
@@ -83,7 +92,7 @@ function App() {
               </div>
             </div>
             <div className='mt-10'>
-              <h3 className='text-center text-[#282828] text-2xl font-semibold'>Currently cooking: 02</h3>
+              <h3 className='text-center text-[#282828] text-2xl font-semibold'>Currently cooking: 0{newRecepi.length}</h3>
               <div className='border-b-2 border-[#2828281A] my-3'></div>
               <div>
                 <div className="overflow-x-auto">
@@ -99,22 +108,20 @@ function App() {
                     </thead>
                     <tbody>
                       {/* row 1 */}
-                      <tr className='table-bg text-[#282828B2]'>
-                        <th>1</th>
-                        <td>Chicken Caesar Salad</td>
-                        <td>20 minutes</td>
-                        <td>400 calories</td>
-                      </tr>
                       {
-                        <tr className='table-bg text-[#282828B2]'>
-                          <th></th>
-                          <td>{newRecipi.recipe_name}</td>
-                          <td>{newRecipi.preparing_time} minutes</td>
-                          <td>{newRecipi.calories} calories</td>
-                        </tr>
+                        newRecepi.map((nrc, idx) => <tr key={idx} className='table-bg text-[#282828B2]'>
+                          <th>{idx + 1}</th>
+                          <td>{nrc.recipe_name}</td>
+                          <td>{nrc.preparing_time} minutes</td>
+                          <td>{nrc.calories} calories</td>
+                        </tr>)
                       }
                     </tbody>
                   </table>
+                </div>
+                <div className='flex gap-8 ml-44 mt-5'>
+                  <h3>Total Time = {sum} minutes</h3>
+                  <h3>Total Calories = {totalCal} calories</h3>
                 </div>
               </div>
             </div>

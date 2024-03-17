@@ -11,7 +11,7 @@ const Recipi = ({ recipe,handelBtnWantToCook}) => {
     return (
         <div className="max-sm:mx-3">
             <div className="card card-compact w-full border-2 border-[#28282833]">
-                <figure className='p-5'><img className='rounded-xl h-[200px] w-[280px]' src={recipe_img} alt="Shoes" /></figure>
+                <figure className='p-5'><img className='rounded-xl h-[200px] w-[280px] max-sm:w-[360px]' src={recipe_img} alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className=" text-[#282828] font-semibold text-xl ">{recipe_name}</h2>
                     <p className='text-[#878787] fira-san'>{short_description}</p>

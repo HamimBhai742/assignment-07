@@ -44,9 +44,9 @@ const Header = () => {
                     <div className="max-w-[852px]">
                         <h1 className="mb-5 text-2xl lg:text-5xl font-bold  lg:leading-[64px] text-[#FFFFFF]">Discover an exceptional cooking class tailored for you!</h1>
                         <p className="mb-5 text-[#FFF] lg:text-lg text-sm">I like to cook.I love to cook so I do my own cooking.I can make good recipes.I can cook a lot of food.My restaurant is different from other restaurants</p>
-                        <div className='space-x-3'>
-                            <button className="w-40 h-14 rounded-full bg-[#0BE58A] text-[#150B2B] text-xl font-semibold">Explore Now</button>
-                            <button className="w-40 h-14 rounded-full border-2 border-white text-[#FFF] text-xl font-semibold ">Our Feedback</button>
+                        <div className='space-x-3 max-sm:flex gap-3'>
+                            <button className="lg:w-40 w-full h-14 rounded-full bg-[#0BE58A] text-[#150B2B] lg:text-xl font-semibold">Explore Now</button>
+                            <button className="lg:w-40 w-full h-14 rounded-full border-2 border-white text-[#FFF] lg:text-xl font-semibold ">Our Feedback</button>
                         </div>
                     </div>
                 </div>

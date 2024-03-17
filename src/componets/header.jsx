@@ -2,7 +2,7 @@
 const Header = () => {
     return (
         <div>
-            <nav className='max-w-[1180px] mx-auto'>
+            <nav className='max-w-[1180px] mx-auto  max-sm:mx-3'>
                 <div className="navbar bg-base-100">
                     <div className="navbar-start">
                         <div className="dropdown">
@@ -16,7 +16,7 @@ const Header = () => {
                                 <li><a>Search</a></li>
                             </ul>
                         </div>
-                        <a className="text-[#150B2B] text-3xl font-bold">Recipe Calories</a>
+                        <a className="text-[#150B2B] lg:text-3xl text-2xl font-bold">Recipe Calories</a>
                     </div>
                     <div className="navbar-center hidden lg:flex">
                         <ul className="menu menu-horizontal px-1 naVarColor">
@@ -27,7 +27,7 @@ const Header = () => {
                         </ul>
                     </div>
                     <div className="navbar-end flex gap-3 items-center">
-                        <label className="input inputBackground flex items-center gap-2 rounded-full">
+                        <label className="input inputBackground flex items-center gap-2 rounded-full max-sm:hidden">
 
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-6 h-6 opacity-70"><path fillRule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" clipRule="evenodd" /></svg>
                             <input type="text" className="" placeholder="Search" />
@@ -39,11 +39,11 @@ const Header = () => {
                 </div>
             </nav>
 
-            <div className="headerLeaner max-w-[1180px] mx-auto py-16 rounded-2xl fontLexend mt-7">
-                <div className="text-center flex justify-center">
+            <div className="headerLeaner max-w-[1180px] mx-auto py-16 rounded-2xl fontLexend mt-7 max-sm:mx-3">
+                <div className="text-center flex justify-center max-sm:px-3">
                     <div className="max-w-[852px]">
-                        <h1 className="mb-5 text-5xl font-bold  leading-[64px] text-[#FFFFFF]">Discover an exceptional cooking class tailored for you!</h1>
-                        <p className="mb-5 text-[#FFF] text-lg">I like to cook.I love to cook so I do my own cooking.I can make good recipes.I can cook a lot of food.My restaurant is different from other restaurants</p>
+                        <h1 className="mb-5 text-2xl lg:text-5xl font-bold  lg:leading-[64px] text-[#FFFFFF]">Discover an exceptional cooking class tailored for you!</h1>
+                        <p className="mb-5 text-[#FFF] lg:text-lg text-sm">I like to cook.I love to cook so I do my own cooking.I can make good recipes.I can cook a lot of food.My restaurant is different from other restaurants</p>
                         <div className='space-x-3'>
                             <button className="w-40 h-14 rounded-full bg-[#0BE58A] text-[#150B2B] text-xl font-semibold">Explore Now</button>
                             <button className="w-40 h-14 rounded-full border-2 border-white text-[#FFF] text-xl font-semibold ">Our Feedback</button>

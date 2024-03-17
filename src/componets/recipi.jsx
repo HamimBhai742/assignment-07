@@ -9,7 +9,7 @@ const Recipi = ({ recipe,handelBtnWantToCook}) => {
     // console.log(ingredient);
 
     return (
-        <div>
+        <div className="max-sm:mx-3">
             <div className="card card-compact w-full border-2 border-[#28282833]">
                 <figure className='p-5'><img className='rounded-xl h-[200px] w-[280px]' src={recipe_img} alt="Shoes" /></figure>
                 <div className="card-body">

@@ -6,16 +6,16 @@ const Recipes = ({handelBtnWantToCook}) => {
     const [recipes, setRecipes] = useState([])
 
     useEffect(() => {
-        fetch('../../public/recipe.json')
+        fetch('/recipe.json')
             .then(res => res.json())
             .then(data=>setRecipes(data))
     }, [])
 
     return (
         
-        <div className=' grid grid-cols-2 gap-5'>
+        <div className='grid lg:grid-cols-2 gap-5'>
             {
-            recipes.map(recipe=> <Recipi key={recipe.id} recipe={recipe} handelBtnWantToCook={handelBtnWantToCook}></Recipi>)
+            recipes.map((recipe,idx)=> <Recipi key={idx} recipe={recipe} handelBtnWantToCook={handelBtnWantToCook}></Recipi>)
             }        
         </div>
         
